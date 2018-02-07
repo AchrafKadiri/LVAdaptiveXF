@@ -13,7 +13,7 @@ namespace LVAdaptive
 		{
 			InitializeComponent();
 
-			MainPage = new LVAdaptive.MainPage();
+			MainPage = new NavigationPage(new LVAdaptive.MainPage());
 		}
 
 		protected override void OnStart ()

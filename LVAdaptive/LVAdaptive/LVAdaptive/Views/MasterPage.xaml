@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:LVAdaptive.Model;assembly=LVAdaptive"
+             x:Class="LVAdaptive.Views.MasterPage" Title="title">
+    <StackLayout>
+        <ListView x:Name="currentListView">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type model:Item}">
+                    <model:Item Name="Item 1"  />
+                    <model:Item Name="Item 2" />
+                    <model:Item Name="Item 3"/>
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="5,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="icon.png" />
+                            <Label Grid.Column="1" Text="{Binding Name}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

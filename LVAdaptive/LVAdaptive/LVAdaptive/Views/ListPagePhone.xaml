@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:LVAdaptive.Model"
+             x:Class="LVAdaptive.Views.ListPagePhone" Title="ListPage on Phone">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" Margin="40">
+
+            <ListView x:Name="list"
+                HasUnevenRows="True"
+                CachingStrategy="RecycleElement"
+                IsPullToRefreshEnabled="True"
+                SeparatorVisibility="None">
+                
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type model:Item}">
+                        <model:Item Name="Item 1"  />
+                        <model:Item Name="Item 2"/>
+                        <model:Item Name="Item 3" />
+                    </x:Array>
+                </ListView.ItemsSource>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell ImageSource="icon.png"
+                                   Text="{Binding Name}"
+                                   TextColor="Blue" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
